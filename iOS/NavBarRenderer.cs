@@ -1,6 +1,7 @@
 ﻿using System;
 using LargeTitleSample;
 using LargeTitleSample.iOS;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -13,7 +14,8 @@ namespace LargeTitleSample.iOS
         {
             base.OnElementChanged(e);
 
-            NavigationBar.PrefersLargeTitles = true;
+            if (UIDevice.CurrentDevice.CheckSystemVersion(11, 0))
+                NavigationBar.PrefersLargeTitles = true;
         }
     }
 }
